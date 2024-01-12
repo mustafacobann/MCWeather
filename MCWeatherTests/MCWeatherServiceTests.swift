@@ -22,11 +22,7 @@ final class MCWeatherServiceTests: XCTestCase {
 
     /// Tests whether getWeather fetches the weather correctly
     func testGetWeatherFetchesCorrectly() throws {
-        guard let url = URL.weatherURL else {
-            throw WeatherServiceError.invalidURL
-        }
-
-        let weatherService = WeatherService(url: url)
+        let weatherService = WeatherService()
         let getWeatherExpectation = expectation(description: "getWeather")
 
         weatherService.getWeather(

@@ -64,7 +64,11 @@ class WeatherViewModel: ObservableObject {
             longitude: selectedLongitude
         )
         .sink(
-            receiveCompletion: { _ in },
+            receiveCompletion: { completion in
+                if case .failure(let failure) = completion {
+                    debugPrint("fetchWeatherInfo finished with error: \(failure.localizedDescription)")
+                }
+            },
             receiveValue: { [weak self] weather in
                 self?.weather = weather
             }
