@@ -11,7 +11,9 @@ import SwiftUI
 struct MCWeatherApp: App {
     var body: some Scene {
         WindowGroup {
-            WeatherScreen()
+            WeatherScreen(
+                weatherService: WeatherService(url: .weatherURL)
+            )
         }
     }
 }

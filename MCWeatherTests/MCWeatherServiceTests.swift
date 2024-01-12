@@ -10,13 +10,15 @@ import Combine
 @testable import MCWeather
 
 final class MCWeatherServiceTests: XCTestCase {
-    
+    /// Set of cancellables that contains combine publishers
     var cancellables = Set<AnyCancellable>()
     
+    /// Constants used during the testing
     enum Constants {
         static let timeout: TimeInterval = 10
     }
 
+    /// Tests whether getWeather fetches the weather correctly
     func testGetWeatherFetchesCorrectly() throws {
         guard let url = URL.weatherURL else {
             throw WeatherServiceError.invalidURL
@@ -24,7 +26,7 @@ final class MCWeatherServiceTests: XCTestCase {
 
         let weatherService = WeatherService(url: url)
         let getWeatherExpectation = expectation(description: "getWeather")
-        
+
         weatherService.getWeather()
             .sink(
                 receiveCompletion: { completion in
@@ -38,7 +40,7 @@ final class MCWeatherServiceTests: XCTestCase {
                 }
             )
             .store(in: &cancellables)
-        
+
         wait(for: [getWeatherExpectation], timeout: Constants.timeout)
     }
 }
