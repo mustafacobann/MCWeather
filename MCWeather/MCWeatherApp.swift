@@ -12,7 +12,7 @@ struct MCWeatherApp: App {
     var body: some Scene {
         WindowGroup {
             WeatherScreen(
-                weatherService: WeatherService(url: .weatherURL)
+                weatherService: WeatherService()
             )
         }
     }

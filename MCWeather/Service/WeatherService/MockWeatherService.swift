@@ -32,7 +32,11 @@ class MockWeatherService: WeatherServiceRequestable {
     }
 
     /// Returns a publisher that contains the weather for the pre-determined location
-    func getWeather() -> AnyPublisher<Weather, Error> {
+    /// Returns a publisher that contains the weather for the pre-determined location
+    func getWeather(
+        latitude: Double,
+        longitude: Double
+    ) -> AnyPublisher<Weather, Error> {
         Just(mockWeather)
             .tryMap { $0 }
             .eraseToAnyPublisher()
