@@ -20,11 +20,7 @@ class WeatherViewModel: ObservableObject {
     /// Selected longitude value for which weather is retrieved
     ///
     /// Default value: 4.891697
-    var selectedLongitude: Double = .mockLongitude {
-        didSet {
-            fetchWeatherInfo()
-        }
-    }
+    var selectedLongitude: Double = .mockLongitude
 
     /// Weather group name, e.g. "Snow"
     var weatherGroup: String? {
