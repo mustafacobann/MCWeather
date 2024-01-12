@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		45E941862B5122FA00CE68C9 /* MCWeatherApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45E941852B5122FA00CE68C9 /* MCWeatherApp.swift */; };
-		45E941882B5122FA00CE68C9 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45E941872B5122FA00CE68C9 /* ContentView.swift */; };
+		45E941882B5122FA00CE68C9 /* WeatherScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45E941872B5122FA00CE68C9 /* WeatherScreen.swift */; };
 		45E9418A2B5122FB00CE68C9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 45E941892B5122FB00CE68C9 /* Assets.xcassets */; };
 		45E9418D2B5122FB00CE68C9 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 45E9418C2B5122FB00CE68C9 /* Preview Assets.xcassets */; };
 /* End PBXBuildFile section */
@@ -16,7 +16,7 @@
 /* Begin PBXFileReference section */
 		45E941822B5122FA00CE68C9 /* MCWeather.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MCWeather.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		45E941852B5122FA00CE68C9 /* MCWeatherApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MCWeatherApp.swift; sourceTree = "<group>"; };
-		45E941872B5122FA00CE68C9 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		45E941872B5122FA00CE68C9 /* WeatherScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherScreen.swift; sourceTree = "<group>"; };
 		45E941892B5122FB00CE68C9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		45E9418C2B5122FB00CE68C9 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -32,6 +32,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		45CB4C382B51265F00C38614 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				45E941872B5122FA00CE68C9 /* WeatherScreen.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		45E941792B5122FA00CE68C9 = {
 			isa = PBXGroup;
 			children = (
@@ -52,7 +60,7 @@
 			isa = PBXGroup;
 			children = (
 				45E941852B5122FA00CE68C9 /* MCWeatherApp.swift */,
-				45E941872B5122FA00CE68C9 /* ContentView.swift */,
+				45CB4C382B51265F00C38614 /* Views */,
 				45E941892B5122FB00CE68C9 /* Assets.xcassets */,
 				45E9418B2B5122FB00CE68C9 /* Preview Content */,
 			);
@@ -137,7 +145,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				45E941882B5122FA00CE68C9 /* ContentView.swift in Sources */,
+				45E941882B5122FA00CE68C9 /* WeatherScreen.swift in Sources */,
 				45E941862B5122FA00CE68C9 /* MCWeatherApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
