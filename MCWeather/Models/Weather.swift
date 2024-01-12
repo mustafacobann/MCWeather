@@ -20,6 +20,9 @@ struct Weather: Decodable {
 
     /// A structure that contains current weather information
     struct CurrentWeather: Decodable {
+        /// Temperature
+        let temp: Double
+
         /// An array of weather details
         let weather: [WeatherDetail]
     }

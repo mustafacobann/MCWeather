@@ -21,6 +21,7 @@ final class MCWeatherViewModelTests: XCTestCase {
         lat: .mockLatitude,
         lon: .mockLongitude,
         current: Weather.CurrentWeather(
+            temp: 34,
             weather: [
                 Weather.WeatherDetail(
                     main: .MockServiceData.rain,
@@ -49,6 +50,30 @@ final class MCWeatherViewModelTests: XCTestCase {
     override func tearDownWithError() throws {
         mockWeatherService = nil
         weatherViewModel = nil
+    }
+    
+    /// Tests whether temperature value is displayed correctly
+    func testTemperatureValueCorrectness() throws {
+        let temperature = mockData.current.temp
+        let correctTemperatureValue = "\(Int(temperature)) °C"
+
+        let temperatureExpectation = expectation(description: "temperature")
+
+        weatherViewModel?.weather.publisher
+            .sink(
+                receiveCompletion: { completion in
+                    if case .failure = completion {
+                        XCTFail()
+                    }
+                },
+                receiveValue: { [weak self] weather in
+                    XCTAssertEqual(correctTemperatureValue, self?.weatherViewModel!.temperature)
+                    temperatureExpectation.fulfill()
+                }
+            )
+            .store(in: &cancellables)
+        
+        wait(for: [temperatureExpectation], timeout: Constants.timeout)
     }
 
     /// Tests whether iconURL is constructed correctly

@@ -16,6 +16,9 @@ extension URL {
         /// Longitude of the weather location
         case lon
 
+        /// Unit of the temperature
+        case units
+
         /// API key
         case appid
     }
