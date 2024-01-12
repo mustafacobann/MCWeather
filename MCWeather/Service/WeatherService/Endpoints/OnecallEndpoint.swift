@@ -22,6 +22,7 @@ struct OneCallEndpoint: Endpoint {
         [
             URLQueryItem(name: URL.QueryItemName.lat.rawValue, value: latitude.description),
             URLQueryItem(name: URL.QueryItemName.lon.rawValue, value: longitude.description),
+            URLQueryItem(name: URL.QueryItemName.units.rawValue, value: "metric"),
             URLQueryItem(name: URL.QueryItemName.appid.rawValue, value: Secrets.apiKey)
         ]
     }

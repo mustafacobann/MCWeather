@@ -24,11 +24,15 @@ struct WeatherScreen: View {
 
     var body: some View {
         if let iconURL = weatherViewModel.weatherIconURL,
+           let temperature = weatherViewModel.temperature,
            let weatherGroup = weatherViewModel.weatherGroup,
            let weatherDescription = weatherViewModel.weatherDescription {
             VStack {
                 Spacer()
                 WeatherIconView(iconURL: iconURL, size: weatherIconSize)
+                Text(temperature)
+                    .font(.title)
+                    .padding(.bottom, 4)
                 Text("\(weatherGroup)")
                     .font(.title.bold())
                 Text("\(weatherDescription)")

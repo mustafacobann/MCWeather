@@ -17,6 +17,7 @@ class MockWeatherService: WeatherServiceRequestable {
         lat: .mockLatitude,
         lon: .mockLongitude,
         current: Weather.CurrentWeather(
+            temp: 34.5,
             weather: [
                 Weather.WeatherDetail(
                     main: .MockServiceData.rain,

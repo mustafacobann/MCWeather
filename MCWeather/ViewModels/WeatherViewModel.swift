@@ -22,6 +22,12 @@ class WeatherViewModel: ObservableObject {
     /// Default value: 4.891697
     var selectedLongitude: Double = .mockLongitude
 
+    /// Temperature of the weather
+    var temperature: String? {
+        guard let temperatureValue = weather?.current.temp else { return nil }
+        return "\(Int(temperatureValue)) °C"
+    }
+
     /// Weather group name, e.g. "Snow"
     var weatherGroup: String? {
         weather?.current.weather[0].main.capitalized
