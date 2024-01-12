@@ -54,6 +54,7 @@ struct WeatherScreen: View {
                 ) { latitude, longitude in
                     weatherViewModel.selectedLatitude = latitude
                     weatherViewModel.selectedLongitude = longitude
+                    weatherViewModel.fetchWeatherInfo()
                 }
             }
         } else {

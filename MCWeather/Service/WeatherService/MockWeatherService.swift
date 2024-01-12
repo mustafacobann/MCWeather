@@ -32,7 +32,6 @@ class MockWeatherService: WeatherServiceRequestable {
     }
 
     /// Returns a publisher that contains the weather for the pre-determined location
-    /// Returns a publisher that contains the weather for the pre-determined location
     func getWeather(
         latitude: Double,
         longitude: Double
