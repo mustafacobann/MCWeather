@@ -9,7 +9,22 @@ import Foundation
 import Combine
 
 class WeatherViewModel: ObservableObject {
+    /// Weather instance that is retrieved from the API
     @Published var weather: Weather?
+
+    /// Selected latitude value for which weather is retrieved
+    ///
+    /// Default value: 52.364138
+    var selectedLatitude: Double = .mockLatitude
+
+    /// Selected longitude value for which weather is retrieved
+    ///
+    /// Default value: 4.891697
+    var selectedLongitude: Double = .mockLongitude {
+        didSet {
+            fetchWeatherInfo()
+        }
+    }
 
     /// Weather group name, e.g. "Snow"
     var weatherGroup: String? {
@@ -44,13 +59,16 @@ class WeatherViewModel: ObservableObject {
     }
 
     func fetchWeatherInfo() {
-        weatherService.getWeather()
-            .sink(
-                receiveCompletion: { _ in },
-                receiveValue: { [weak self] weather in
-                    self?.weather = weather
-                }
-            )
-            .store(in: &cancellables)
+        weatherService.getWeather(
+            latitude: selectedLatitude,
+            longitude: selectedLongitude
+        )
+        .sink(
+            receiveCompletion: { _ in },
+            receiveValue: { [weak self] weather in
+                self?.weather = weather
+            }
+        )
+        .store(in: &cancellables)
     }
 }

@@ -21,7 +21,10 @@ class WeatherService: WeatherServiceRequestable {
     }
     
     /// Returns a publisher that contains the weather for the pre-determined location
-    func getWeather() -> AnyPublisher<Weather, Error> {
+    func getWeather(
+        latitude: Double,
+        longitude: Double
+    ) -> AnyPublisher<Weather, Error> {
         guard let url else {
             return Fail(error: WeatherServiceError.invalidURL)
                 .eraseToAnyPublisher()
