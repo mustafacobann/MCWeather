@@ -28,6 +28,11 @@
 		45F830792B516FE4000518EC /* OnecallEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45F830782B516FE4000518EC /* OnecallEndpoint.swift */; };
 		45F8307B2B5173C0000518EC /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45F8307A2B5173C0000518EC /* NetworkManager.swift */; };
 		45F8307D2B51744D000518EC /* Endpoint+WeatherValues.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45F8307C2B51744D000518EC /* Endpoint+WeatherValues.swift */; };
+		45F830812B517BD0000518EC /* WeatherIconView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45F830802B517BD0000518EC /* WeatherIconView.swift */; };
+		45F830832B517E3B000518EC /* LocationButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45F830822B517E3B000518EC /* LocationButton.swift */; };
+		45F830852B517ED8000518EC /* MapScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45F830842B517ED8000518EC /* MapScreen.swift */; };
+		45F830872B519BB0000518EC /* LocationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45F830862B519BB0000518EC /* LocationView.swift */; };
+		45F830892B519E07000518EC /* BottomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45F830882B519E06000518EC /* BottomButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,6 +70,11 @@
 		45F830782B516FE4000518EC /* OnecallEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnecallEndpoint.swift; sourceTree = "<group>"; };
 		45F8307A2B5173C0000518EC /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		45F8307C2B51744D000518EC /* Endpoint+WeatherValues.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Endpoint+WeatherValues.swift"; sourceTree = "<group>"; };
+		45F830802B517BD0000518EC /* WeatherIconView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherIconView.swift; sourceTree = "<group>"; };
+		45F830822B517E3B000518EC /* LocationButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationButton.swift; sourceTree = "<group>"; };
+		45F830842B517ED8000518EC /* MapScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapScreen.swift; sourceTree = "<group>"; };
+		45F830862B519BB0000518EC /* LocationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationView.swift; sourceTree = "<group>"; };
+		45F830882B519E06000518EC /* BottomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,6 +117,11 @@
 			isa = PBXGroup;
 			children = (
 				45E941872B5122FA00CE68C9 /* WeatherScreen.swift */,
+				45F830802B517BD0000518EC /* WeatherIconView.swift */,
+				45F830822B517E3B000518EC /* LocationButton.swift */,
+				45F830842B517ED8000518EC /* MapScreen.swift */,
+				45F830862B519BB0000518EC /* LocationView.swift */,
+				45F830882B519E06000518EC /* BottomButton.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -328,9 +343,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				45F830832B517E3B000518EC /* LocationButton.swift in Sources */,
 				45CB4C422B51288500C38614 /* WeatherService.swift in Sources */,
 				4522D5D32B5143800081C190 /* WeatherViewModel.swift in Sources */,
 				4522D5DA2B51467C0081C190 /* Double+Values.swift in Sources */,
+				45F830872B519BB0000518EC /* LocationView.swift in Sources */,
+				45F830852B517ED8000518EC /* MapScreen.swift in Sources */,
 				4522D5D52B5144D20081C190 /* MockWeatherService.swift in Sources */,
 				45F8307D2B51744D000518EC /* Endpoint+WeatherValues.swift in Sources */,
 				45F8307B2B5173C0000518EC /* NetworkManager.swift in Sources */,
@@ -343,6 +361,8 @@
 				45F830792B516FE4000518EC /* OnecallEndpoint.swift in Sources */,
 				4522D5E02B514B570081C190 /* URL+Utils.swift in Sources */,
 				45CB4C572B512CD700C38614 /* WeatherServiceError.swift in Sources */,
+				45F830892B519E07000518EC /* BottomButton.swift in Sources */,
+				45F830812B517BD0000518EC /* WeatherIconView.swift in Sources */,
 				4522D5D82B51459B0081C190 /* String+Values.swift in Sources */,
 				45F830762B516E3E000518EC /* Endpoint.swift in Sources */,
 			);

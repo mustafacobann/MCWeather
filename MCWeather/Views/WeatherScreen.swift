@@ -8,9 +8,14 @@
 import SwiftUI
 
 struct WeatherScreen: View {
+    /// View model that contains weather information
     @StateObject var weatherViewModel: WeatherViewModel
-    let imageSize: CGFloat = 120
-    let imageOpacity: CGFloat = 0.2
+
+    /// A flag that determines whether map screen is shown
+    @State var isMapScreenShown = false
+
+    /// Size of the weather icon
+    let weatherIconSize: CGFloat = 120
 
     init(weatherService: WeatherServiceRequestable) {
         let weatherViewModel = WeatherViewModel(weatherService: weatherService)
@@ -18,35 +23,42 @@ struct WeatherScreen: View {
     }
 
     var body: some View {
-        VStack {
-            if let iconURL = weatherViewModel.weatherIconURL {
-                AsyncImage(
-                    url: iconURL,
-                    content: { image in
-                        image
-                            .resizable()
-                            .frame(width: imageSize, height: imageSize)
-                    },
-                    placeholder: {
-                        Color.gray
-                            .opacity(imageOpacity)
-                            .frame(width: imageSize, height: imageSize)
-                    }
-                )
-            }
-
-            if let weatherGroup = weatherViewModel.weatherGroup {
+        if let iconURL = weatherViewModel.weatherIconURL,
+           let weatherGroup = weatherViewModel.weatherGroup,
+           let weatherDescription = weatherViewModel.weatherDescription {
+            VStack {
+                Spacer()
+                WeatherIconView(iconURL: iconURL, size: weatherIconSize)
                 Text("\(weatherGroup)")
                     .font(.title.bold())
-            }
-
-            if let weatherDescription = weatherViewModel.weatherDescription {
                 Text("\(weatherDescription)")
+                Spacer()
             }
-
-            
+            .frame(maxWidth: .infinity)
+            .safeAreaInset(edge: .bottom) {
+                LocationView(
+                    latitude: weatherViewModel.selectedLatitude,
+                    longitude: weatherViewModel.selectedLongitude
+                )
+                .padding()
+            }
+            .overlay(alignment: .topTrailing) {
+                LocationButton {
+                    isMapScreenShown = true
+                }
+            }
+            .sheet(isPresented: $isMapScreenShown) {
+                MapScreen(
+                    selectedLatitude: weatherViewModel.selectedLatitude,
+                    selectedLongitude: weatherViewModel.selectedLongitude
+                ) { latitude, longitude in
+                    weatherViewModel.selectedLatitude = latitude
+                    weatherViewModel.selectedLongitude = longitude
+                }
+            }
+        } else {
+            ProgressView()
         }
-        .padding()
     }
 }
 
