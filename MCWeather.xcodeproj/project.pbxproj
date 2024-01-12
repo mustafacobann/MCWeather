@@ -161,7 +161,7 @@
 				45E9418B2B5122FB00CE68C9 /* Preview Content */,
 				45CB4C3D2B5126CA00C38614 /* Models */,
 				4522D5D62B5145900081C190 /* Values */,
-				4522D5D22B5143800081C190 /* WeatherViewModel.swift */,
+				45F830702B516235000518EC /* ViewModels */,
 				4522D5E12B514B5C0081C190 /* Helpers */,
 			);
 			path = MCWeather;
@@ -173,6 +173,14 @@
 				45E9418C2B5122FB00CE68C9 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		45F830702B516235000518EC /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				4522D5D22B5143800081C190 /* WeatherViewModel.swift */,
+			);
+			path = ViewModels;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
