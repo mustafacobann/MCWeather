@@ -10,19 +10,24 @@ import Combine
 
 class WeatherService: WeatherServiceRequestable {
     /// URL for the weather service request
-    let url: URL
+    let url: URL?
     
     /// Decoder that is used to decoded the response of the service request
     let decoder: JSONDecoder
     
-    init(url: URL) {
+    init(url: URL?) {
         self.url = url
         decoder = JSONDecoder()
     }
     
     /// Returns a publisher that contains the weather for the pre-determined location
     func getWeather() -> AnyPublisher<Weather, Error> {
-        URLSession.shared.dataTaskPublisher(for: url)
+        guard let url else {
+            return Fail(error: WeatherServiceError.invalidURL)
+                .eraseToAnyPublisher()
+        }
+        
+        return URLSession.shared.dataTaskPublisher(for: url)
             .map { $0.data }
             .decode(type: Weather.self, decoder: decoder)
             .receive(on: DispatchQueue.main)
