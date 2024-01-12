@@ -13,12 +13,12 @@ class WeatherViewModel: ObservableObject {
 
     /// Weather group name, e.g. "Snow"
     var weatherGroup: String? {
-        weather?.current.weather[0].main
+        weather?.current.weather[0].main.capitalized
     }
 
     /// A detailed description of the weather, e.g. "light rain and snow"
     var weatherDescription: String? {
-        weather?.current.weather[0].description
+        weather?.current.weather[0].description.capitalized
     }
 
     /// URL for the current weather icon
@@ -43,7 +43,7 @@ class WeatherViewModel: ObservableObject {
         fetchWeatherInfo()
     }
 
-    private func fetchWeatherInfo() {
+    func fetchWeatherInfo() {
         weatherService.getWeather()
             .sink(
                 receiveCompletion: { _ in },
